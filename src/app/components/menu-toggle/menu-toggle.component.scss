@@ -1,0 +1,13 @@
+
+.menu-toggle {
+  position: fixed;
+  right: 2vw;
+  top: 2vh;
+  z-index: 1000;
+  button {
+    outline: 0 none!important;
+    &.is-active {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'ARS Maquette Pro';
+  src: url('/assets/fonts/subset-ARSMaquettePro-Regular.woff2') format('woff2'),
+  url('/assets/fonts/subset-ARSMaquettePro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ARS Maquette Pro';
+  src: url('/assets/fonts/subset-ARSMaquettePro-Bold.woff2') format('woff2'),
+  url('/assets/fonts/subset-ARSMaquettePro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GoboldBold';
+  src: url('/assets/fonts/GoboldBold.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/GoboldBold.woff') format('woff'),
+  url('/assets/fonts/GoboldBold.ttf')  format('truetype'),
+  url('/assets/fonts/GoboldBold.svg#GoboldBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.rf-font-normal {
+  font-family: 'ARS Maquette Pro', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.rf-font-bold {
+  font-family: 'ARS Maquette Pro', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}

@@ -1,0 +1,28 @@
+#loader {
+  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-main);
+  position: fixed;
+  z-index: 200;
+  .logo {
+    pointer-events: none;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    img {
+      width: 180px;
+      height: auto;
+      display: inline-block;
+    }
+  }
+  canvas {
+    width: 240px;
+    height: 240px;
+  }
+}

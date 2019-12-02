@@ -1,0 +1,215 @@
+<app-loader *ngIf="loading"></app-loader>
+
+<!--<div class="container-fluid p-0">-->
+<!--  <div class="row m-0 main-section align-items-start"-->
+<!--       [style.backgroundPositionY]="parallaxScroll + 'px'" #mainSection>-->
+<!--    <div class="col-12 text-center">-->
+<!--      <img class="main-title mt-3" src="/assets/img/logo_rf.png">-->
+<!--    </div>-->
+<!--    <div class="rockanfella-text" [style.top.px]="isSmallPortrait ? parallaxScroll / 1.4 : parallaxScroll * 1.4">-->
+<!--      <h1 class="rockan rf-font-bold">Rockan</h1>-->
+<!--      <h1 class="fella rf-font-bold">fella</h1>-->
+<!--    </div>-->
+<!--    <canvas #canvas class="clipped-video"></canvas>-->
+<!--    <video autoplay playsinline muted loop preload-->
+<!--           poster="/assets/img/video_cover.png" #video class="bg-video">-->
+<!--      <source src="/assets/video/video.mp4" type="video/mp4">-->
+<!--    </video>-->
+<!--    <div class="studio-text" [style.bottom.px]="studioTextPosition">-->
+<!--      <h1 class="rf-font-bold">Studi<div class="circle"></div></h1>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container-fluid p-0">
+  <div class="row m-0 main-section align-items-start"
+       [style.backgroundPositionY.px]="isSmallPortrait ? 0 : parallaxScroll" #mainSection>
+    <div class="col-12 text-center position-relative" style="z-index: 6">
+      <img class="main-title mt-3" src="/assets/img/logo_rf.png">
+    </div>
+    <div class="rockanfella-text" [style.top.px]="isSmallPortrait ? 0 : parallaxScroll * 1.4">
+      <h1 class="rockan rf-font-bold">Rockan</h1>
+      <h1 class="fella rf-font-bold">fella</h1>
+    </div>
+    <video autoplay playsinline
+           loop preload="auto" #video
+           poster="/assets/img/video_cover.png"
+           [style.top.px]="videoPosition">
+      <source src="/assets/video/video.mp4" type="video/mp4">
+    </video>
+    <div class="video-mask" [style.top.px]="videoPosition">
+      <h1 #videoMask>R</h1>
+    </div>
+    <div class="color-mask" [style.top.px]="videoPosition">
+      <h1 #colorMask>R</h1>
+    </div>
+    <div class="studio-text" [style.bottom.px]="studioTextPosition">
+      <h1 class="rf-font-bold">Studi<div class="circle"></div></h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-0">
+  <div #counterSection
+       class="row m-0 counter-section align-items-center justify-content-center flex-nowrap">
+<!--    <img src="/assets/img/rf_signature_white.png" class="rf-signature">-->
+    <div class="col-auto p-0" *ngFor="let item of counterItems">
+      <div class="counter-item" [style.textAlign]="item.textDirection"
+           [ngClass]="{'expanded': item.expanded}"
+           (mouseenter)="expandItem(item)">
+        <h1 class="counter-hours rf-font-bold" [style.paddingBottom.vw]="item.dividerTop * 2">{{ item.quantity }}</h1>
+        <h2 class="counter-quantifier rf-font-bold">{{ item.quantifier }}</h2>
+        <p class="counter-text rf-font-normal">{{ item.text }}</p>
+        <div class="counter-divider"
+             *ngIf="item.hasDivider"
+             [style.height.vw]="item.dividerLength + item.dividerTop">
+
+        </div>
+      </div>
+    </div>
+    <div class="floating-arrow d-none d-lg-block">
+      <img src="/assets/img/arrow_up.png" class="counter-arrow-up">
+    </div>
+    <div class="switching-arrows d-block d-lg-none">
+      <img src="/assets/img/arrow_left.png" class="counter-arrow mr-3" (click)="switchCounter(-1)">
+      <img src="/assets/img/arrow.png" class="counter-arrow" (click)="switchCounter(1)">
+    </div>
+    <div class="counter-section-text">
+      <img src="/assets/img/counter-text.png" class="img-fluid">
+    </div>
+    <div class="counter-gear top">
+      <img src="/assets/img/cog-blue.gif" alt="" class="gear">
+    </div>
+    <div class="counter-gear bottom">
+      <img src="/assets/img/cog-red.gif" alt="" class="gear">
+    </div>
+  </div>
+</div>
+
+<h1 class="floating-text start rf-font-bold"
+    [style.top]="'calc(' + descriptionSectionSizes.start + 'px - ' + (isSmallPortrait ? '16vw' : '8vw' )+ ')'"
+    [style.left.px]="sideScroll.rockan">rockan</h1>
+
+<div class="container-fluid p-0">
+  <div class="row m-0 description-section align-items-center"
+       #descriptionSection (mousemove)="parallaxMouseMove($event)">
+<!--    <div class="floating-item parallax-layer d-none d-lg-block" [attr.data-depth]="0.35"-->
+<!--         [style.top.%]="descFloatingPositions.r.y"-->
+<!--         [style.left.%]="descFloatingPositions.r.x">-->
+<!--&lt;!&ndash;      <img class="d-inline-block" [src]="colorService.colors[1].r">&ndash;&gt;-->
+<!--          <img class="d-inline-block" src="/assets/img/rf.png">-->
+<!--    </div>-->
+<!--    <div class="floating-item parallax-layer d-none d-lg-block" [attr.data-depth]="0.5"-->
+<!--         [style.top.%]="descFloatingPositions.f.y"-->
+<!--         [style.left.%]="descFloatingPositions.f.x">-->
+<!--&lt;!&ndash;      <img class="d-inline-block" [src]="colorService.colors[1].f">&ndash;&gt;-->
+<!--          <img class="d-inline-block" src="/assets/img/ff.png">-->
+<!--    </div>-->
+<!--    <div class="moving-dash first parallax-layer"-->
+<!--         [attr.data-depth]="0.2"-->
+<!--         [style.top.%]="descFloatingPositions.d1.y"-->
+<!--         [style.left.%]="descFloatingPositions.d1.x">-->
+<!--      <div class="dash"></div>-->
+<!--    </div>-->
+<!--    <div class="moving-dash second parallax-layer"-->
+<!--         [attr.data-depth]="0.3"-->
+<!--         [style.top.%]="descFloatingPositions.d2.y"-->
+<!--         [style.left.%]="descFloatingPositions.d2.x">-->
+<!--      <div class="dash"></div>-->
+<!--    </div>-->
+    <div class="col-12 col-md-6 no-pointer-events text-center pt-5 pt-lg-0">
+      <div class="text-container p-3 p-lg-4 parallax-layer" [attr.data-depth]="1">
+        <div class="corner-border upper left"></div>
+        <div class="corner-border upper right"></div>
+        <div class="text-content rf-font-normal parallax-layer" [attr.data-depth]="4">
+          <img src="/assets/img/manifest.png" alt="" class="rf-manifesto img-fluid">
+        </div>
+        <div class="corner-border lower left"></div>
+        <div class="corner-border lower right"></div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 py-5 py-lg-3 text-center no-pointer-events animation-container">
+      <div class="main-animation">
+        <img [src]="colorService.selectedOption.manifestRender"
+             alt="" class="img-fluid parallax-layer animation-image" [attr.data-depth]="2">
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="floating-text end rf-font-bold"
+    [style.top]="'calc(' + descriptionSectionSizes.end + 'px - ' + (isSmallPortrait ? '2vw' : '12vw' )+ ')'"
+    [style.right.px]="sideScroll.fella">fella.</h1>
+
+<div class="container-fluid p-0">
+  <div class="row m-0 portfolio-section align-items-center">
+    <div class="w-100 text-center signature-container">
+      <img src="/assets/img/rf_signature_yellow.png" class="rf-signature">
+    </div>
+    <div class="col-12 text-center">
+      <div class="w-100 portfolio-texts">
+        <h1 class="portfolio-shadow rf-font-bold">port<br class="d-block d-md-none">folio</h1>
+        <h2 class="portfolio-title rf-font-bold">portfolio</h2>
+      </div>
+      <a routerLink="/portfolio">
+        <img src="/assets/img/arrow.png" class="access-arrow">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-0">
+  <div class="row m-0 reel-section align-items-stretch" #reelSection
+       (mousemove)="holeMouseMove($event)"
+       [style.backgroundPositionY]="parallaxScroll + 'px'">
+    <div class="col-12 position-relative video-container">
+      <div class="mask-cursor"></div>
+      <video autoplay playsinline muted loop preload (click)="openReelVideo()"
+             poster="/assets/img/video_cover.png" #reelVideo class="bg-video">
+        <source src="/assets/video/video.mp4" type="video/mp4">
+      </video>
+      <h1 class="reel-title rf-font-bold">reel.</h1>
+    </div>
+  </div>
+</div>
+
+<h1 class="floating-text black rf-font-bold end"
+    [style.top]="'calc(' + reelSectionSizes.end + 'px - ' + (isSmallPortrait ? '0px' : '14vw' )+ ')'"
+    [style.right.px]="sideScroll.reel">reel</h1>
+
+<div class="container-fluid p-0">
+  <div class="row m-0 contact-section align-items-center" (mousemove)="parallaxMouseMove($event)" #contactSection>
+    <h1 class="contact-title parallax-layer rf-font-bold" [attr.data-depth]="2">
+      con<br>
+      tact<br>
+    </h1>
+    <h3 class="contact-mail parallax-layer rf-font-bold" [attr.data-depth]="1.8">
+      <a href="mailto:hello@rockanfella.com" target="_blank">hello@rockanfella.com</a>
+    </h3>
+
+    <div class="main-animation">
+      <img [src]="colorService.selectedOption?.contactRender"
+           alt="" class="img-fluid parallax-layer animation-image" [attr.data-depth]="1.5">
+    </div>
+
+    <div class="contact-info parallax-layer" [attr.data-depth]="1.5">
+      <h3 class="rf-font-bold"><span class="place">cdmx</span> 5255 55755767</h3>
+      <h3 class="rf-font-bold mb-3"><span class="place">miami</span> 3052068201</h3>
+      <a href="https://vimeo.com/rockanfella" target="_blank" class="social-link">
+        <i class="fab fa-vimeo-v fa-2x"></i>
+      </a>
+      <a href="https://www.facebook.com/Rockanfella/" target="_blank" class="social-link">
+        <i class="fab fa-facebook-f fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com/rockanfella/" target="_blank" class="social-link">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="https://twitter.com/rockanfella" target="_blank" class="social-link">
+        <i class="fab fa-twitter fa-2x"></i>
+      </a>
+    </div>
+    <div class="contact-subtitle parallax-layer">
+      <h2 class="parallax-layer rf-font-bold" [attr.data-depth]="1.75">cdmx/miami</h2>
+    </div>
+  </div>
+</div>

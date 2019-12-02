@@ -1,0 +1,33 @@
+<div id="player-overlay">
+  <div class="container-fluid extra-videos">
+    <div class="row align-items-stretch pb-5">
+      <div class="col-12">
+        <div class="close-btn text-right">
+          <span aria-hidden="true" (click)="hideModal()">&times;</span>
+        </div>
+      </div>
+      <div [ngClass]="extraItems.length > 0 ? 'col-12 col-lg-9' : 'col-12'">
+        <div class="video-container">
+          <div class="embed-responsive embed-responsive-16by9" *ngIf="videoItem">
+            <iframe [src]="videoItem.video | safe"
+                    frameborder="no" webkitallowfullscreen="true"
+                    mozallowfullscreen="true" allowfullscreen="true"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-3" *ngIf="extraItems.length > 0">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-4 col-lg-12 video-thumbnail mt-3 mt-lg-0 mb-3 px-0"
+               *ngFor="let item of extraItems" (click)="setVideo(item)">
+            <img [src]="item.image" class="img-fluid">
+            <div class="d-flex align-items-center title-container">
+              <h1 class="section-title-shadow rf-font-bold text-uppercase">Play</h1>
+              <h1 class="section-title rf-font-bold text-uppercase">Play</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

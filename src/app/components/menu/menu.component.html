@@ -1,0 +1,16 @@
+<div class="app-menu" [ngClass]="{'active': expanded}">
+  <h1 class="text-bg top">rockan</h1>
+  <div class="w-100 menu-title">
+    <img src="/assets/img/logo_rf.png" (click)="goTo({route: ['/'], name: 'rockanfella'})" style="cursor: pointer;">
+  </div>
+  <div class="menu-items">
+    <div class="menu-item"
+         [ngClass]="{ 'active': item.active }"
+         (click)="goTo(item)"
+         *ngFor="let item of menuItems">
+      <h1 [style.fontSize.vw]="item.size"
+          [style.opacity]="item.opacity">{{item.name}}</h1>
+    </div>
+  </div>
+  <h1 class="text-bg bottom">fella</h1>
+</div>

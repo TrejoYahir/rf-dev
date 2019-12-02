@@ -1,0 +1,115 @@
+<div class="container-fluid p-0">
+  <div class="row m-0 portfolio-content">
+    <div class="col-2 d-none d-lg-block p-0">
+      <div class="align-items-center justify-content-start portfolio-title-container">
+        <div class="portfolio-block"></div>
+        <div class="portfolio-title">
+          <h1 class="title-shadow rf-font-bold">portfolio</h1>
+          <h1 class="title rf-font-bold">portfolio</h1>
+        </div>
+        <a routerLink="/" class="navigation-back">
+          <img src="/assets/img/arrow_left.png" class="access-arrow">
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="row">
+        <div class="col-12 p-responsive-title-container d-block d-lg-none">
+          <div class="p-responsive-block">
+            <a routerLink="/" class="navigation-back">
+              <img src="/assets/img/arrow_left.png" class="access-arrow">
+            </a>
+          </div>
+          <div class="p-responsive-title">
+            <h1 class="title-shadow rf-font-bold">portfolio</h1>
+            <h1 class="title rf-font-bold">portfolio</h1>
+          </div>
+        </div>
+        <div class="portfolio-item col-12 col-lg-8">
+          <div class="row">
+            <div [style.height.px]="heightStyles.twoThirds" class="portfolio-item image-container col-12">
+              <div class="bg-image" (click)="openModalWithComponent(portfolioItems[0])"
+                   [style.backgroundImage]="'url(' + portfolioItems[0].image + ')'">
+              </div>
+              <div class="d-flex align-items-center flex-column title-container">
+                <div class="section-category">
+                  <h1 class="section-title-shadow rf-font-bold text-uppercase">{{portfolioItems[0].belongsTo}}</h1>
+                  <h1 class="section-title rf-font-bold text-uppercase">{{portfolioItems[0].belongsTo}}</h1>
+                </div>
+                <div class="watch-message d-block d-md-none" (click)="openModalMobile(portfolioItems[0])">
+                  <h3 class="watch-text rf-font-bold text-uppercase">Play</h3>
+                  <h3 class="watch-text-shadow rf-font-bold text-uppercase">Play</h3>
+                </div>
+              </div>
+            </div>
+            <div [style.height.px]="heightStyles.oneThird" class="portfolio-item image-container col-6">
+              <div class="bg-image" (click)="openModalWithComponent(portfolioItems[1])"
+                   [style.backgroundImage]="'url(' + portfolioItems[1].image + ')'"></div>
+              <div class="d-flex align-items-center flex-column title-container">
+                <div class="section-category">
+                  <h1 class="section-title-shadow rf-font-bold text-uppercase">{{portfolioItems[1].belongsTo}}</h1>
+                  <h1 class="section-title rf-font-bold text-uppercase">{{portfolioItems[1].belongsTo}}</h1>
+                </div>
+                <div class="watch-message d-block d-md-none" (click)="openModalMobile(portfolioItems[1])">
+                  <h3 class="watch-text rf-font-bold text-uppercase">Play</h3>
+                  <h3 class="watch-text-shadow rf-font-bold text-uppercase">Play</h3>
+                </div>
+              </div>
+            </div>
+            <div [style.height.px]="heightStyles.oneThird" class="portfolio-item image-container col-6">
+              <div class="bg-image" (click)="openModalWithComponent(portfolioItems[2])"
+                   [style.backgroundImage]="'url(' + portfolioItems[2].image + ')'"></div>
+              <div class="d-flex align-items-center flex-column title-container">
+                <div class="section-category">
+                  <h1 class="section-title-shadow rf-font-bold text-uppercase">{{portfolioItems[2].belongsTo}}</h1>
+                  <h1 class="section-title rf-font-bold text-uppercase">{{portfolioItems[2].belongsTo}}</h1>
+                </div>
+                <div class="watch-message d-block d-md-none" (click)="openModalMobile(portfolioItems[2])">
+                  <h3 class="watch-text rf-font-bold text-uppercase">Play</h3>
+                  <h3 class="watch-text-shadow rf-font-bold text-uppercase">Play</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item col-12 col-lg-4">
+          <div class="row">
+            <div [style.height.px]="heightStyles.oneThird" class="portfolio-item image-container col-12">
+              <div class="bg-image" (click)="openModalWithComponent(portfolioItems[3])"
+                   [style.backgroundImage]="'url(' + portfolioItems[3].image + ')'"></div>
+              <div class="d-flex align-items-center flex-column title-container">
+                <div class="section-category">
+                  <h1 class="section-title-shadow rf-font-bold text-uppercase">{{portfolioItems[3].belongsTo}}</h1>
+                  <h1 class="section-title rf-font-bold text-uppercase">{{portfolioItems[3].belongsTo}}</h1>
+                </div>
+                <div class="watch-message d-block d-md-none" (click)="openModalMobile(portfolioItems[3])">
+                  <h3 class="watch-text rf-font-bold text-uppercase">Play</h3>
+                  <h3 class="watch-text-shadow rf-font-bold text-uppercase">Play</h3>
+                </div>
+              </div>
+            </div>
+            <div [style.height.px]="heightStyles.twoThirds" class="portfolio-item image-container col-12">
+              <div class="bg-image" (click)="openModalWithComponent(portfolioItems[4])"
+                   [style.backgroundImage]="'url(' + portfolioItems[4].image + ')'"></div>
+              <div class="d-flex align-items-center flex-column title-container">
+                <div class="section-category">
+                  <h1 class="section-title-shadow rf-font-bold text-uppercase">{{portfolioItems[4].belongsTo}}</h1>
+                  <h1 class="section-title rf-font-bold text-uppercase">{{portfolioItems[4].belongsTo}}</h1>
+                </div>
+                <div class="watch-message d-block d-md-none" (click)="openModalMobile(portfolioItems[4])">
+                  <h3 class="watch-text rf-font-bold text-uppercase">Play</h3>
+                  <h3 class="watch-text-shadow rf-font-bold text-uppercase">Play</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 d-none d-lg-block">
+      <div class="w-100 h-100 d-flex align-items-center">
+        <img src="/assets/img/rf_signature_yellow.png" class="rf-signature img-fluid p-3">
+      </div>
+    </div>
+  </div>
+</div>
